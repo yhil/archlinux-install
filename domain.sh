@@ -179,6 +179,19 @@ session required pam_winbind.so
 session   optional  pam_permit.so
 EOF
 
+cat > /etc/pam.d/su << EOF
+auth    required        pam_env.so
+auth    sufficient      pam_winbind.so
+auth    sufficient      pam_unix.so nullok
+auth    required        pam_deny.so
+
+account   sufficient pam_unix.so
+account   sufficient pam_winbind.so
+
+session sufficient pam_unix.so
+session sufficient pam_winbind.so
+EOF
+
 sudo systemctl start ntpd
 sudo systemctl enable ntpd
 sudo systemctl enable nmb

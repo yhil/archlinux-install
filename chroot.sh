@@ -15,10 +15,13 @@ sed -i "s/\(GRUB_PRELOAD_MODULES\s*=\s*\).*$/\1\"part_gpt part_msdos lvm\"/" /et
 
 sed -i "s/\(HOOKS\s*=\s*\).*$/\1\"base systemd autodetect keyboard sd-vconsole modconf block sd-encrypt sd-lvm2 filesystems fsck\"/" /etc/mkinitcpio.conf
 
-sed -i "/fr_FR.UTF8*/s/^#//" /etc/locale.gen
+read -p "Choose your locale (e.g: en_US.UTF-8): " custlocale
+sed -i "/${custlocale}/s/^#//" /etc/locale.gen
 {
 locale-gen
+echo "LANG=${custlocale}" > /etc/locale.conf
 } >> /tmp/stdout.log
+
 
 read -p "Choose your key mapping: " keymap
 echo "KEYMAP=${keymap}" > /etc/vconsole.conf
@@ -73,7 +76,7 @@ then
     exit 1
 fi
 
-https://raw.githubusercontent.com/yhil/arch-install/master/domain.sh && mv domain.sh /home/domain.sh && chmod +x /home/domain.sh
+wget https://raw.githubusercontent.com/yhil/archlinux-install/master/domain.sh && mv domain.sh /home/domain.sh && chmod +x /home/domain.sh
 
 /bin/bash -c /home/domain.sh
 
