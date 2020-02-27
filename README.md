@@ -33,9 +33,17 @@ This is a group of scripts to install ArchLinux EFI Computer. This include:
 # Usage:
 1. Boot your live environment
 2. Install wget
-3. Download the script from main.sh script from github
+3. Download main.sh script from github<br>
 ```wget https://raw.githubusercontent.com/yhil/arch-install/master/main.sh```
-4. Change the script permission to allow execution
+4. Change the script permission to allow execution<br>
 ```chmod +x main.sh```
-5. Start the script
+5. Start the script<br>
 ```.\main.sh```
+6. Reboot your computer
+7. Login with your previously created user
+8. Download users.sh script from github<br>
+```wget https://raw.githubusercontent.com/yhil/arch-install/master/users.sh```
+9. Change the script permission to allow execution<br>
+```chmod +x users.sh```
+10. Start the script
+```.\users.sh```
