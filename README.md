@@ -31,11 +31,11 @@ This is a group of scripts to install ArchLinux EFI Computer. This include:
 - Pam su configuration
 
 # Usage:
-2. Boot your live environment
-3. Install wget
-4. Download the script from main.sh script from github
+1. Boot your live environment
+2. Install wget
+3. Download the script from main.sh script from github
 ```wget https://raw.githubusercontent.com/yhil/arch-install/master/main.sh```
-5. Change the script permission to allow execution
+4. Change the script permission to allow execution
 ```chmod +x main.sh```
-6. Start the script
+5. Start the script
 ```.\main.sh```
