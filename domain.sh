@@ -192,11 +192,7 @@ session sufficient pam_unix.so
 session sufficient pam_winbind.so
 EOF
 
-sudo systemctl start ntpd
-sudo systemctl enable ntpd
-sudo systemctl enable nmb
-sudo systemctl start nmb
-sudo systemctl start smb
-sudo systemctl enable smb
-sudo systemctl start winbind
-sudo systemctl enable winbind 
+sudo systemctl enable --now ntpd
+sudo systemctl enable --now nmb
+sudo systemctl enable --now smb
+sudo systemctl enable --now winbind 
